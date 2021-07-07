@@ -1,6 +1,11 @@
 # circleproject
 
-A new Flutter project.
+ 동아리 관리를 위한 앱 개발 
+
+# 개발 도구
+ Firebase
+ MySQL
+ flutter
 
 ## Getting Started
 
