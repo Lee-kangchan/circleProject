@@ -1,4 +1,5 @@
-import 'package:circleproject/firebaseData.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutters/firebaseData.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'circleAdd.dart';
@@ -82,6 +83,24 @@ class First extends StatelessWidget {
             // MaterialPageRoute<void>(builder: (BuildContext context) => Second())
             // );
           },
+        ),
+        GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: () async {
+            final f = FirebaseFirestore.instance;
+            await f.collection('circle').doc('circles1').set({
+              'title': '음악 동아리',
+              'content': '음악을 좋아하시는 분들 오세용',
+              'image': 'https://randomuser.me/api/portraits/men/41.jpg'
+            });
+            print("됫니?");
+          },
+          child: Container(
+              padding: EdgeInsets.all(13),
+              decoration: BoxDecoration(
+                  border: Border.all(width: 2, color: Colors.grey),
+                  borderRadius: BorderRadius.circular(12)),
+              child: Text('보내기', style: TextStyle(fontSize: 25))),
         )
       ])),
     );
